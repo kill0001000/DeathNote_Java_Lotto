@@ -117,7 +117,7 @@ public class Sports {
 			if (listBlue.contains(blue2))
 				flag += 1;
 
-			if (flag_redBall > 3 || flag > 4) {
+			if (flag_redBall > 4 || flag > 5) {
 				// System.out.println(date + " " + red1 + " " + red2 + " " + red3 + " " + red4 + " " + red5 + " " + blue1 + " " + blue2);
 				return true;
 			}
@@ -135,7 +135,7 @@ public class Sports {
 			flag = 0;
 		}
 
-		if (sameSize3_redBall < 15 || sameSize3_redBall > 25 || sameSize4 < 6 || sameSize4 > 13) {
+		if (sameSize3_redBall < 15 || sameSize3_redBall > 25 || sameSize4_redBall > 1 || sameSize4 < 6 || sameSize4 > 13 || sameSize5 > 1) {
 			// System.out.println("sameSize4:" + sameSize4 + "\tsameSize3_redBall:" + sameSize3_redBall);
 			return true;
 		}
