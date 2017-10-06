@@ -1,4 +1,6 @@
-package lotto;
+package sports;
+
+import common.Common;
 
 import groovy.util.Node;
 
@@ -10,15 +12,15 @@ import groovy.util.Node;
  *         概率统计
  * 
  */
-public class WelfareAnalyst_Ball {
+public class SportsAnalyst_Ball {
 
 	static Common common = new Common();
-	static Node xml = common.getXmlData("lotto/data_welfare.xml");
+	static Node xml = common.getXmlData("lotto/data_sports.xml");
 
 	static int historyListSize = 0;
 
-	static int[] redBallList = new int[34];
-	static int[] blueBallList = new int[17];
+	static int[] redBallList = new int[36];
+	static int[] blueBallList = new int[13];
 
 	public static void main(String[] args) {
 
@@ -58,7 +60,7 @@ public class WelfareAnalyst_Ball {
 	 */
 	private static void analystRedBall(Node oneLotto) {
 		int redBall;
-		for (int j = 0; j < 6; j++) {
+		for (int j = 0; j < 5; j++) {
 
 			redBall = Integer.parseInt((String) ((Node) oneLotto.children().get(j)).attribute("red"));
 			redBallList[redBall] += 1;
@@ -73,10 +75,12 @@ public class WelfareAnalyst_Ball {
 	 */
 	private static void analystBlueBall(Node oneLotto) {
 		int blueBall;
+		for (int j = 5; j < 7; j++) {
 
-		blueBall = Integer.parseInt((String) ((Node) oneLotto.children().get(6)).attribute("blue"));
-		blueBallList[blueBall] += 1;
+			blueBall = Integer.parseInt((String) ((Node) oneLotto.children().get(j)).attribute("blue"));
+			blueBallList[blueBall] += 1;
 
+		}
 	}
 
 	/**

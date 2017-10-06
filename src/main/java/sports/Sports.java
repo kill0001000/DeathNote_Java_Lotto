@@ -1,9 +1,11 @@
-package lotto;
+package sports;
 
 import groovy.util.Node;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import common.Common;
 
 public class Sports {
 

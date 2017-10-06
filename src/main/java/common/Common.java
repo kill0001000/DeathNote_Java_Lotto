@@ -1,4 +1,4 @@
-package lotto;
+package common;
 
 import groovy.util.Node;
 import groovy.util.XmlParser;

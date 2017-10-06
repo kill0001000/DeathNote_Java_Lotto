@@ -1,23 +1,29 @@
-package lotto;
+package sports;
 
 import groovy.util.Node;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import common.Common;
+
 /**
  * @author rren1
  * 
+ *         分析 红球 相同量的情况
+ * 
  */
-public class SportsAnalyst {
+public class SportsAnalyst_redBall {
 
 	static Common common = new Common();
 	static Node xml = common.getXmlData("lotto/data_sports.xml");
+
 	static int historyListSize = 0;
+	static int sameSize3_global = 0;
 	static int sameSize4_global = 0;
-	static int sameSize5_global = 0;
-	static int[] sameSize4_analyst = new int[21];
-	static int[] sameSize5_analyst = new int[10];
+
+	static int[] sameSize3_analyst = new int[50];
+	static int[] sameSize4_analyst = new int[10];
 
 	public static void main(String[] args) {
 
@@ -71,50 +77,53 @@ public class SportsAnalyst {
 	 */
 	private static void compare_sports(Node xml, String[] oneSports) {
 
-		// 期号， 红球， 蓝球
+		historyListSize = xml.children().size();
+
+		// 期号， 红球
 		String compareDate = oneSports[0];
-		List<String> listRed = getListRed(oneSports);
-		List<String> listBlue = getListBlue(oneSports);
+		List<String> listRed = getRedBallList(oneSports);
+
+		// 打印 当注数据
+		// printLotto_sports(oneSports);
 
 		// 遍历
-		int flag = 0, sameSize4 = 0, sameSize5 = 0;
-		String date, red1, red2, red3, red4, red5, blue1, blue2;
-		historyListSize = xml.children().size();
+		int flag_redBall = 0, sameSize3 = 0, sameSize4 = 0;
+		String date, red1, red2, red3, red4, red5;
+
 		for (int i = 0; i < historyListSize; i++) {
 
 			Node oneLotto = (Node) xml.children().get(i);
 
 			date = (String) oneLotto.attribute("date");
 			if (!compareDate.equals(date)) {
+
 				red1 = (String) ((Node) oneLotto.children().get(0)).attribute("red");
 				red2 = (String) ((Node) oneLotto.children().get(1)).attribute("red");
 				red3 = (String) ((Node) oneLotto.children().get(2)).attribute("red");
 				red4 = (String) ((Node) oneLotto.children().get(3)).attribute("red");
 				red5 = (String) ((Node) oneLotto.children().get(4)).attribute("red");
-				blue1 = (String) ((Node) oneLotto.children().get(5)).attribute("blue");
-				blue2 = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
 
-				flag = getSameSize(listRed, listBlue, flag, red1, red2, red3, red4, red5, blue1, blue2);
+				flag_redBall = getSameSize_redBall(listRed, flag_redBall, red1, red2, red3, red4, red5);
 
-				if (flag == 4) {
+				if (flag_redBall == 3) {
+					sameSize3 += 1;
+					sameSize3_global += 1;
+				}
+				if (flag_redBall == 4) {
 					sameSize4 += 1;
 					sameSize4_global += 1;
 				}
-				if (flag == 5) {
-					sameSize5 += 1;
-					sameSize5_global += 1;
-				}
 
-				flag = 0;
+				flag_redBall = 0;
 			}
 		}
 
+		// 收集 相似数为3的数据
+		if (sameSize3 < 50)
+			sameSize3_analyst[sameSize3] += 1;
 		// 收集 相似数为4的数据
-		if (sameSize4 < 21)
+		if (sameSize4 < 10)
 			sameSize4_analyst[sameSize4] += 1;
-		// 收集 相似数为5的数据
-		if (sameSize5 < 7)
-			sameSize5_analyst[sameSize5] += 1;
 
 	}
 
@@ -124,27 +133,13 @@ public class SportsAnalyst {
 	 * @param oneSports
 	 * @return
 	 */
-	private static List<String> getListRed(String[] oneSports) {
+	private static List<String> getRedBallList(String[] oneSports) {
 		List<String> listRed = new ArrayList<String>();
 
 		for (int i = 1; i < oneSports.length - 2; i++) {
 			listRed.add(oneSports[i]);
 		}
 		return listRed;
-	}
-
-	/**
-	 * 得到蓝球的数据列表
-	 * 
-	 * @param oneSports
-	 * @return
-	 */
-	private static List<String> getListBlue(String[] oneSports) {
-		List<String> listBlue = new ArrayList<String>();
-
-		listBlue.add(oneSports[6]);
-		listBlue.add(oneSports[7]);
-		return listBlue;
 	}
 
 	/**
@@ -158,12 +153,9 @@ public class SportsAnalyst {
 	 * @param red3
 	 * @param red4
 	 * @param red5
-	 * @param blue1
-	 * @param blue2
 	 * @return
 	 */
-	private static int getSameSize(List<String> listRed, List<String> listBlue, int flag, String red1, String red2, String red3, String red4, String red5, String blue1,
-			String blue2) {
+	private static int getSameSize_redBall(List<String> listRed, int flag, String red1, String red2, String red3, String red4, String red5) {
 		if (listRed.contains(red1))
 			flag += 1;
 		if (listRed.contains(red2))
@@ -174,10 +166,6 @@ public class SportsAnalyst {
 			flag += 1;
 		if (listRed.contains(red5))
 			flag += 1;
-		if (listBlue.contains(blue1))
-			flag += 1;
-		if (listBlue.contains(blue2))
-			flag += 1;
 		return flag;
 	}
 
@@ -186,22 +174,20 @@ public class SportsAnalyst {
 	 */
 	private static void printAnalystReport() {
 
-		System.out.println("\nhistoryListSize:" + historyListSize + "\tsameSize4_global:" + sameSize4_global + "\tsameSize5_global:" + sameSize5_global);
+		System.out.println("\nhistoryListSize:" + historyListSize + "\tsameSize3_global:" + sameSize3_global + "\tsameSize4_global:" + sameSize4_global);
 
+		String avg3 = String.format("%.2f", (double) sameSize3_global / (double) historyListSize);
 		String avg4 = String.format("%.2f", (double) sameSize4_global / (double) historyListSize);
-		String avg5 = String.format("%.2f", (double) sameSize5_global / (double) historyListSize);
-		System.out.println("historyListSize:" + historyListSize + "\tsameSize4_global:" + avg4 + "\tsameSize5_global:" + avg5);
+		System.out.println("historyListSize:" + historyListSize + "\tsameSize3_global:" + avg3 + "\tsameSize4_global:" + avg4);
+
+		System.out.println("\nsameSize3_analyst:");
+		for (int i = 0; i < sameSize3_analyst.length; i++) {
+			System.out.println(i + "\t" + sameSize3_analyst[i]);
+		}
 
 		System.out.println("\nsameSize4_analyst:");
 		for (int i = 0; i < sameSize4_analyst.length; i++) {
 			System.out.println(i + "\t" + sameSize4_analyst[i]);
-
-		}
-
-		System.out.println("\nsameSize5_analyst:");
-		for (int i = 0; i < sameSize5_analyst.length; i++) {
-			System.out.println(i + "\t" + sameSize5_analyst[i]);
-
 		}
 	}
 

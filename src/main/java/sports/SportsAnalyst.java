@@ -1,18 +1,24 @@
-package lotto;
+package sports;
 
 import groovy.util.Node;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WelfareAnalyst {
+import common.Common;
+
+/**
+ * @author rren1
+ * 
+ */
+public class SportsAnalyst {
 
 	static Common common = new Common();
-	static Node xml = common.getXmlData("lotto/data_welfare.xml");
+	static Node xml = common.getXmlData("lotto/data_sports.xml");
 	static int historyListSize = 0;
 	static int sameSize4_global = 0;
 	static int sameSize5_global = 0;
-	static int[] sameSize4_analyst = new int[30];
+	static int[] sameSize4_analyst = new int[21];
 	static int[] sameSize5_analyst = new int[10];
 
 	public static void main(String[] args) {
@@ -31,7 +37,7 @@ public class WelfareAnalyst {
 	private static void analyst() {
 
 		// 键存储，用于存取每一注历史数据
-		String[] oneWelfare = new String[8];
+		String[] oneSports = new String[8];
 
 		// 开始分析
 		int size = xml.children().size();
@@ -39,59 +45,58 @@ public class WelfareAnalyst {
 
 			Node oneLotto = (Node) xml.children().get(i);
 
-			oneWelfare[0] = (String) oneLotto.attribute("date");
-			oneWelfare[1] = (String) ((Node) oneLotto.children().get(0)).attribute("red");
-			oneWelfare[2] = (String) ((Node) oneLotto.children().get(1)).attribute("red");
-			oneWelfare[3] = (String) ((Node) oneLotto.children().get(2)).attribute("red");
-			oneWelfare[4] = (String) ((Node) oneLotto.children().get(3)).attribute("red");
-			oneWelfare[5] = (String) ((Node) oneLotto.children().get(4)).attribute("red");
-			oneWelfare[6] = (String) ((Node) oneLotto.children().get(5)).attribute("red");
-			oneWelfare[7] = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
+			oneSports[0] = (String) oneLotto.attribute("date");
+			oneSports[1] = (String) ((Node) oneLotto.children().get(0)).attribute("red");
+			oneSports[2] = (String) ((Node) oneLotto.children().get(1)).attribute("red");
+			oneSports[3] = (String) ((Node) oneLotto.children().get(2)).attribute("red");
+			oneSports[4] = (String) ((Node) oneLotto.children().get(3)).attribute("red");
+			oneSports[5] = (String) ((Node) oneLotto.children().get(4)).attribute("red");
+			oneSports[6] = (String) ((Node) oneLotto.children().get(5)).attribute("blue");
+			oneSports[7] = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
 
 			// 开始分析每一注
-			compare_welfare(xml, oneWelfare);
-			oneWelfare = new String[8];
+			compare_sports(xml, oneSports);
+			oneSports = new String[8];
 		}
 	}
 
 	/**
-	 * 比较历史数据_welfare
+	 * 比较历史数据_sports
 	 * 
 	 * @param xml
 	 *            历史数据 XML格式
-	 * @param oneWelfare
+	 * @param oneSports
 	 *            随机一注
 	 * @param sameSize
 	 *            最大相同数
 	 * @return
 	 */
-	private static void compare_welfare(Node xml, String[] oneWelfare) {
+	private static void compare_sports(Node xml, String[] oneSports) {
 
 		// 期号， 红球， 蓝球
-		String compareDate = oneWelfare[0];
-		List<String> listRed = getListRed(oneWelfare);
-		String generlationBlue = oneWelfare[7];
+		String compareDate = oneSports[0];
+		List<String> listRed = getListRed(oneSports);
+		List<String> listBlue = getListBlue(oneSports);
 
 		// 遍历
 		int flag = 0, sameSize4 = 0, sameSize5 = 0;
-		String date, red1, red2, red3, red4, red5, red6, blue;
+		String date, red1, red2, red3, red4, red5, blue1, blue2;
 		historyListSize = xml.children().size();
 		for (int i = 0; i < historyListSize; i++) {
 
 			Node oneLotto = (Node) xml.children().get(i);
 
 			date = (String) oneLotto.attribute("date");
-
 			if (!compareDate.equals(date)) {
 				red1 = (String) ((Node) oneLotto.children().get(0)).attribute("red");
 				red2 = (String) ((Node) oneLotto.children().get(1)).attribute("red");
 				red3 = (String) ((Node) oneLotto.children().get(2)).attribute("red");
 				red4 = (String) ((Node) oneLotto.children().get(3)).attribute("red");
 				red5 = (String) ((Node) oneLotto.children().get(4)).attribute("red");
-				red6 = (String) ((Node) oneLotto.children().get(5)).attribute("red");
-				blue = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
+				blue1 = (String) ((Node) oneLotto.children().get(5)).attribute("blue");
+				blue2 = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
 
-				flag = common.getSameSize_welfare(generlationBlue, listRed, flag, red1, red2, red3, red4, red5, red6, blue);
+				flag = getSameSize(listRed, listBlue, flag, red1, red2, red3, red4, red5, blue1, blue2);
 
 				if (flag == 4) {
 					sameSize4 += 1;
@@ -107,30 +112,75 @@ public class WelfareAnalyst {
 		}
 
 		// 收集 相似数为4的数据
-		if (sameSize4 < sameSize4_analyst.length)
+		if (sameSize4 < 21)
 			sameSize4_analyst[sameSize4] += 1;
 		// 收集 相似数为5的数据
-		if (sameSize5 < sameSize5_analyst.length)
+		if (sameSize5 < 7)
 			sameSize5_analyst[sameSize5] += 1;
-
-		System.out.println(oneWelfare[0] + " " + oneWelfare[1] + " " + oneWelfare[2] + " " + oneWelfare[3] + " " + oneWelfare[4] + " " + oneWelfare[5] + " " + oneWelfare[6] + " "
-				+ oneWelfare[7] + ": sameSize4 - " + sameSize4 + " sameSize5 - " + sameSize5);
 
 	}
 
 	/**
 	 * 得到红球的数据列表
 	 * 
-	 * @param oneWelfare
+	 * @param oneSports
 	 * @return
 	 */
-	private static List<String> getListRed(String[] oneWelfare) {
+	private static List<String> getListRed(String[] oneSports) {
 		List<String> listRed = new ArrayList<String>();
 
-		for (int i = 1; i < oneWelfare.length - 1; i++) {
-			listRed.add(oneWelfare[i]);
+		for (int i = 1; i < oneSports.length - 2; i++) {
+			listRed.add(oneSports[i]);
 		}
 		return listRed;
+	}
+
+	/**
+	 * 得到蓝球的数据列表
+	 * 
+	 * @param oneSports
+	 * @return
+	 */
+	private static List<String> getListBlue(String[] oneSports) {
+		List<String> listBlue = new ArrayList<String>();
+
+		listBlue.add(oneSports[6]);
+		listBlue.add(oneSports[7]);
+		return listBlue;
+	}
+
+	/**
+	 * 计算和历史一期数据相同的个数
+	 * 
+	 * @param listRed
+	 * @param listBlue
+	 * @param flag
+	 * @param red1
+	 * @param red2
+	 * @param red3
+	 * @param red4
+	 * @param red5
+	 * @param blue1
+	 * @param blue2
+	 * @return
+	 */
+	private static int getSameSize(List<String> listRed, List<String> listBlue, int flag, String red1, String red2, String red3, String red4, String red5, String blue1,
+			String blue2) {
+		if (listRed.contains(red1))
+			flag += 1;
+		if (listRed.contains(red2))
+			flag += 1;
+		if (listRed.contains(red3))
+			flag += 1;
+		if (listRed.contains(red4))
+			flag += 1;
+		if (listRed.contains(red5))
+			flag += 1;
+		if (listBlue.contains(blue1))
+			flag += 1;
+		if (listBlue.contains(blue2))
+			flag += 1;
+		return flag;
 	}
 
 	/**
