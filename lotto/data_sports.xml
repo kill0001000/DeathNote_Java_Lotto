@@ -1,5 +1,14 @@
 <data contentType="text/xml; charset=utf-8">
 
+	<r date="17117">
+		<c red="05" />
+		<c red="07" />
+		<c red="09" />
+		<c red="24" />
+		<c red="32" />
+		<c blue="08" />
+		<c blue="10" />
+	</r>
 	<r date="17116">
 		<c red="02" />
 		<c red="27" />
