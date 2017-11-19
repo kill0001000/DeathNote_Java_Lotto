@@ -129,8 +129,8 @@ public class SportsAnalyst2 {
 				String blue1 = (String) ((Node) oneLotto.children().get(5)).attribute("blue");
 				String blue2 = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
 
-				redFlag = getSameSizeRed(listRed, redFlag, red1, red2, red3, red4, red5);
-				blueFlag = getSameSizeBlue(listBlue, blueFlag, blue1, blue2);
+				redFlag = common.getSameSizeRed(listRed, redFlag, red1, red2, red3, red4, red5);
+				blueFlag = common.getSameSizeBlue(listBlue, blueFlag, blue1, blue2);
 
 				redSame[redFlag] += 1;
 				blueSame[blueFlag] += 1;
@@ -170,41 +170,7 @@ public class SportsAnalyst2 {
 		return listBlue;
 	}
 
-	/**
-	 * 计算和历史一期数据相同的个数
-	 * 
-	 */
-	private static int getSameSizeRed(List<String> listRed, int flag, String red1, String red2, String red3, String red4, String red5) {
 
-		if (listRed.contains(red1))
-			flag += 1;
-		if (listRed.contains(red2))
-			flag += 1;
-		if (listRed.contains(red3))
-			flag += 1;
-		if (listRed.contains(red4))
-			flag += 1;
-		if (listRed.contains(red5))
-			flag += 1;
-
-		return flag;
-
-	}
-
-	/**
-	 * 计算和历史一期数据相同的个数
-	 * 
-	 */
-	private static int getSameSizeBlue(List<String> listBlue, int flag, String blue1, String blue2) {
-
-		if (listBlue.contains(blue1))
-			flag += 1;
-		if (listBlue.contains(blue2))
-			flag += 1;
-
-		return flag;
-
-	}
 
 	/**
 	 * 打印分析报告

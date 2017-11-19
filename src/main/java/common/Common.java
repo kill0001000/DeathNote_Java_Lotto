@@ -117,6 +117,42 @@ public class Common {
 	}
 
 	/**
+	 * 计算和历史一期数据相同的个数
+	 * 
+	 */
+	public int getSameSizeRed(List<String> listRed, int flag, String red1, String red2, String red3, String red4, String red5) {
+
+		if (listRed.contains(red1))
+			flag += 1;
+		if (listRed.contains(red2))
+			flag += 1;
+		if (listRed.contains(red3))
+			flag += 1;
+		if (listRed.contains(red4))
+			flag += 1;
+		if (listRed.contains(red5))
+			flag += 1;
+
+		return flag;
+
+	}
+
+	/**
+	 * 计算和历史一期数据相同的个数
+	 * 
+	 */
+	public int getSameSizeBlue(List<String> listBlue, int flag, String blue1, String blue2) {
+
+		if (listBlue.contains(blue1))
+			flag += 1;
+		if (listBlue.contains(blue2))
+			flag += 1;
+
+		return flag;
+
+	}
+
+	/**
 	 * 打印生成的数据
 	 * 
 	 * @param lotto

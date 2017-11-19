@@ -11,6 +11,11 @@ public class Sports {
 
 	static Common common = new Common();
 
+	// 每一注 相同数分析
+	static int[] redSame = new int[6];
+	static int[] blueSame = new int[3];
+	static int[] allSame = new int[8];
+
 	public static void main(String[] args) {
 
 		System.out.println("\n\nSports:" + common.getCurrentDate());
@@ -85,42 +90,32 @@ public class Sports {
 		listBlue.add(oneSports[6]);
 
 		// 遍历
-		int flag = 0, flag_redBall = 0, sameSize4 = 0, sameSize5 = 0, sameSize3_redBall = 0, sameSize4_redBall = 0;
 		int size = xml.children().size();
-		String date, red1, red2, red3, red4, red5, blue1, blue2;
 		for (int i = 0; i < size; i++) {
 
 			Node oneLotto = (Node) xml.children().get(i);
+			int redFlag = 0, blueFlag = 0;
 
-			date = (String) oneLotto.attribute("date");
-			red1 = (String) ((Node) oneLotto.children().get(0)).attribute("red");
-			red2 = (String) ((Node) oneLotto.children().get(1)).attribute("red");
-			red3 = (String) ((Node) oneLotto.children().get(2)).attribute("red");
-			red4 = (String) ((Node) oneLotto.children().get(3)).attribute("red");
-			red5 = (String) ((Node) oneLotto.children().get(4)).attribute("red");
-			blue1 = (String) ((Node) oneLotto.children().get(5)).attribute("blue");
-			blue2 = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
+			String date = (String) oneLotto.attribute("date");
+			String red1 = (String) ((Node) oneLotto.children().get(0)).attribute("red");
+			String red2 = (String) ((Node) oneLotto.children().get(1)).attribute("red");
+			String red3 = (String) ((Node) oneLotto.children().get(2)).attribute("red");
+			String red4 = (String) ((Node) oneLotto.children().get(3)).attribute("red");
+			String red5 = (String) ((Node) oneLotto.children().get(4)).attribute("red");
+			String blue1 = (String) ((Node) oneLotto.children().get(5)).attribute("blue");
+			String blue2 = (String) ((Node) oneLotto.children().get(6)).attribute("blue");
 
-			if (listRed.contains(red1))
-				flag += 1;
-			if (listRed.contains(red2))
-				flag += 1;
-			if (listRed.contains(red3))
-				flag += 1;
-			if (listRed.contains(red4))
-				flag += 1;
-			if (listRed.contains(red5))
-				flag += 1;
+			redFlag = common.getSameSizeRed(listRed, redFlag, red1, red2, red3, red4, red5);
+			blueFlag = common.getSameSizeBlue(listBlue, blueFlag, blue1, blue2);
 
-			flag_redBall = flag;
+			redSame[redFlag] += 1;
+			blueSame[blueFlag] += 1;
+			allSame[redFlag + blueFlag] += 1;
 
-			if (listBlue.contains(blue1))
-				flag += 1;
-			if (listBlue.contains(blue2))
-				flag += 1;
-
+			
 			if (flag_redBall > 4 || flag > 5) {
-				// System.out.println(date + " " + red1 + " " + red2 + " " + red3 + " " + red4 + " " + red5 + " " + blue1 + " " + blue2);
+				// System.out.println(date + " " + red1 + " " + red2 + " " +
+				// red3 + " " + red4 + " " + red5 + " " + blue1 + " " + blue2);
 				return true;
 			}
 
@@ -138,7 +133,8 @@ public class Sports {
 		}
 
 		if (sameSize3_redBall < 15 || sameSize3_redBall > 25 || sameSize4_redBall > 1 || sameSize4 < 6 || sameSize4 > 13 || sameSize5 > 1) {
-			// System.out.println("sameSize4:" + sameSize4 + "\tsameSize3_redBall:" + sameSize3_redBall);
+			// System.out.println("sameSize4:" + sameSize4 +
+			// "\tsameSize3_redBall:" + sameSize3_redBall);
 			return true;
 		}
 
