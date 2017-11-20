@@ -79,6 +79,10 @@ public class Sports {
 	 */
 	private static boolean compare_sports(Node xml, String[] oneSports) {
 
+		redSame = new int[6];
+		blueSame = new int[3];
+		allSame = new int[8];
+
 		List<String> listRed = new ArrayList<String>();
 		List<String> listBlue = new ArrayList<String>();
 
@@ -96,7 +100,6 @@ public class Sports {
 			Node oneLotto = (Node) xml.children().get(i);
 			int redFlag = 0, blueFlag = 0;
 
-			String date = (String) oneLotto.attribute("date");
 			String red1 = (String) ((Node) oneLotto.children().get(0)).attribute("red");
 			String red2 = (String) ((Node) oneLotto.children().get(1)).attribute("red");
 			String red3 = (String) ((Node) oneLotto.children().get(2)).attribute("red");
@@ -112,33 +115,46 @@ public class Sports {
 			blueSame[blueFlag] += 1;
 			allSame[redFlag + blueFlag] += 1;
 
-			
-			if (flag_redBall > 4 || flag > 5) {
-				// System.out.println(date + " " + red1 + " " + red2 + " " +
-				// red3 + " " + red4 + " " + red5 + " " + blue1 + " " + blue2);
-				return true;
-			}
-
-			if (flag_redBall == 3)
-				sameSize3_redBall += 1;
-			if (flag_redBall == 4)
-				sameSize4_redBall += 1;
-
-			if (flag == 4)
-				sameSize4 += 1;
-			if (flag == 5)
-				sameSize5 += 1;
-
-			flag = 0;
 		}
-
-		if (sameSize3_redBall < 15 || sameSize3_redBall > 25 || sameSize4_redBall > 1 || sameSize4 < 6 || sameSize4 > 13 || sameSize5 > 1) {
-			// System.out.println("sameSize4:" + sameSize4 +
-			// "\tsameSize3_redBall:" + sameSize3_redBall);
-			return true;
-		}
-
 		printLotto_sports(oneSports);
+
+		if (redSame[0] < 554 || redSame[0] > 817)
+			return true;
+		if (redSame[1] < 608 || redSame[1] > 764)
+			return true;
+		if (redSame[2] < 167 || redSame[2] > 245)
+			return true;
+		if (redSame[3] < 11 || redSame[3] > 37)
+			return true;
+		if (redSame[4] > 2)
+			return true;
+		if (redSame[5] > 0)
+			return true;
+
+		if (blueSame[0] < 1061 || blueSame[0] > 1130)
+			return true;
+		if (blueSame[1] < 450 || blueSame[1] > 524)
+			return true;
+		if (blueSame[2] < 12 || blueSame[2] > 35)
+			return true;
+
+		if (allSame[0] < 357 || allSame[0] > 565)
+			return true;
+		if (allSame[1] < 644 || allSame[1] > 708)
+			return true;
+		if (allSame[2] < 326 || allSame[2] > 396)
+			return true;
+		if (allSame[3] < 66 || allSame[3] > 115)
+			return true;
+		if (allSame[4] < 6 || allSame[4] > 14)
+			return true;
+		if (allSame[5] > 1)
+			return true;
+		if (allSame[6] > 0)
+			return true;
+		if (allSame[7] > 0)
+			return true;
+
 		return false;
 	}
 
@@ -149,7 +165,11 @@ public class Sports {
 	 */
 	private static void printLotto_sports(String[] oneSports) {
 		for (int i = 0; i < oneSports.length; i++) {
-			System.out.print(oneSports[i] + " ");
+			if (i == 4)
+				System.out.print(oneSports[i] + "   ");
+			else
+				System.out.print(oneSports[i] + " ");
+
 		}
 		System.out.println();
 	}
