@@ -16,6 +16,8 @@ public class Sports {
 	static int[] blueSame = new int[3];
 	static int[] allSame = new int[8];
 
+	static int cal = 0;
+
 	public static void main(String[] args) {
 
 		System.out.println("\n\nSports:" + common.getCurrentDate());
@@ -35,7 +37,9 @@ public class Sports {
 		String[] oneSports = getOneSports();
 
 		for (int i = 0; i < 5; i++) {
+			cal = 0;
 			do {
+				cal++;
 				oneSports = getOneSports();
 			} while (compare_sports(xml, oneSports));
 		}
@@ -116,7 +120,6 @@ public class Sports {
 			allSame[redFlag + blueFlag] += 1;
 
 		}
-		printLotto_sports(oneSports);
 
 		if (redSame[0] < 554 || redSame[0] > 817)
 			return true;
@@ -155,6 +158,7 @@ public class Sports {
 		if (allSame[7] > 0)
 			return true;
 
+		printLotto_sports(oneSports);
 		return false;
 	}
 
@@ -171,6 +175,7 @@ public class Sports {
 				System.out.print(oneSports[i] + " ");
 
 		}
+		System.out.print("\t\t" + cal);
 		System.out.println();
 	}
 
