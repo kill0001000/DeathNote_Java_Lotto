@@ -129,7 +129,7 @@ public class Sports {
 			return true;
 		if (redSame[3] < 11 || redSame[3] > 37)
 			return true;
-		if (redSame[4] > 2)
+		if (redSame[4] > 0)
 			return true;
 		if (redSame[5] > 0)
 			return true;
@@ -151,7 +151,7 @@ public class Sports {
 			return true;
 		if (allSame[4] < 6 || allSame[4] > 14)
 			return true;
-		if (allSame[5] > 1)
+		if (allSame[5] > 0)
 			return true;
 		if (allSame[6] > 0)
 			return true;
