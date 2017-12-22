@@ -1,5 +1,41 @@
 <data contentType="text/xml; charset=utf-8">
 
+	<r date="17149">
+		<c red="10" />
+		<c red="18" />
+		<c red="19" />
+		<c red="25" />
+		<c red="26" />
+		<c blue="04" />
+		<c blue="12" />
+	</r>
+	<r date="17148">
+		<c red="19" />
+		<c red="27" />
+		<c red="31" />
+		<c red="32" />
+		<c red="35" />
+		<c blue="11" />
+		<c blue="12" />
+	</r>
+	<r date="17147">
+		<c red="05" />
+		<c red="16" />
+		<c red="17" />
+		<c red="25" />
+		<c red="34" />
+		<c blue="01" />
+		<c blue="11" />
+	</r>
+	<r date="17146">
+		<c red="01" />
+		<c red="05" />
+		<c red="11" />
+		<c red="14" />
+		<c red="35" />
+		<c blue="09" />
+		<c blue="10" />
+	</r>
 	<r date="17145">
 		<c red="04" />
 		<c red="07" />
