@@ -36,7 +36,7 @@ public class Sports {
 
 		String[] oneSports = getOneSports();
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 20; i++) {
 			cal = 0;
 			do {
 				cal++;
