@@ -38,6 +38,9 @@ public class Sports {
 
 		for (int i = 0; i < 20; i++) {
 			cal = 0;
+			if (i % 5 == 0) {
+				System.out.println();
+			}
 			do {
 				cal++;
 				oneSports = getOneSports();
