@@ -1,7 +1,6 @@
 package sports;
 
 import common.Common;
-
 import groovy.util.Node;
 
 /**

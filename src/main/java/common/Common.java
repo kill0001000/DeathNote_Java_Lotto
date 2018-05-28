@@ -1,14 +1,14 @@
 package common;
 
-import groovy.util.Node;
-import groovy.util.XmlParser;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+
+import groovy.util.Node;
+import groovy.util.XmlParser;
 
 public class Common {
 
