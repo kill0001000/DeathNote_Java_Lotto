@@ -84,7 +84,7 @@ public class HistoryAddIn {
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
         String response = sendGet();
-//		System.out.println(response);
+		System.out.println(response);
 
 //		Pattern pet = Pattern.compile("<tbody>(.|\\n)*</tbody>");
 //		Pattern pet = Pattern.compile("\\b\\w{3}\\b");
