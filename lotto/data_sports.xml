@@ -1,5 +1,14 @@
 <data contentType="text/xml; charset=utf-8">
 
+    <r date="18107">
+        <c red="07"/>
+        <c red="08"/>
+        <c red="09"/>
+        <c red="10"/>
+        <c red="22"/>
+        <c blue="03"/>
+        <c blue="04"/>
+    </r>
     <r date="18106">
         <c red="04"/>
         <c red="14"/>
@@ -9,7 +18,6 @@
         <c blue="01"/>
         <c blue="04"/>
     </r>
-
     <r date="18105">
         <c red="01"/>
         <c red="16"/>
@@ -19,7 +27,6 @@
         <c blue="02"/>
         <c blue="07"/>
     </r>
-
     <r date="18104">
         <c red="01"/>
         <c red="13"/>
@@ -29,7 +36,6 @@
         <c blue="07"/>
         <c blue="11"/>
     </r>
-
     <r date="18103">
         <c red="14"/>
         <c red="24"/>
@@ -39,7 +45,6 @@
         <c blue="02"/>
         <c blue="03"/>
     </r>
-
     <r date="18102">
         <c red="06"/>
         <c red="07"/>
@@ -49,7 +54,6 @@
         <c blue="10"/>
         <c blue="12"/>
     </r>
-
     <r date="18101">
         <c red="03"/>
         <c red="14"/>
@@ -59,7 +63,6 @@
         <c blue="04"/>
         <c blue="05"/>
     </r>
-
     <r date="18100">
         <c red="06"/>
         <c red="20"/>
@@ -69,7 +72,6 @@
         <c blue="06"/>
         <c blue="09"/>
     </r>
-
     <r date="18099">
         <c red="12"/>
         <c red="13"/>
@@ -79,7 +81,6 @@
         <c blue="01"/>
         <c blue="07"/>
     </r>
-
     <r date="18098">
         <c red="02"/>
         <c red="15"/>
@@ -89,7 +90,6 @@
         <c blue="05"/>
         <c blue="07"/>
     </r>
-
     <r date="18097">
         <c red="10"/>
         <c red="12"/>
