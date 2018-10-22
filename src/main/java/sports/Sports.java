@@ -123,9 +123,9 @@ public class Sports {
             return true;
         if (redSame[1] < 680 || redSame[1] > 764)
             return true;
-        if (redSame[2] < 180 || redSame[2] > 260)
+        if (redSame[2] < 180 || redSame[2] > 275)
             return true;
-        if (redSame[3] < 17 || redSame[3] > 31)
+        if (redSame[3] < 17 || redSame[3] > 35)
             return true;
         if (redSame[4] > 2)
             return true;
