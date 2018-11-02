@@ -27,7 +27,6 @@ public class Sports {
     /**
      * 生成5注
      *
-     * @param sameSize 最大相同数
      */
     private static void get5_sports() {
         Node xml = common.getXmlData("lotto/data_sports.xml");
@@ -76,7 +75,6 @@ public class Sports {
      *
      * @param xml       历史数据 XML格式
      * @param oneSports 随机一注
-     * @param sameSize  最大相同数
      * @return
      */
     private static boolean compare_sports(Node xml, String[] oneSports) {
@@ -119,13 +117,13 @@ public class Sports {
 
         }
 
-        if (redSame[0] < 720 || redSame[0] > 830)
+        if (redSame[0] < 720 || redSame[0] > 860)
             return true;
-        if (redSame[1] < 680 || redSame[1] > 764)
+        if (redSame[1] < 680 || redSame[1] > 800)
             return true;
         if (redSame[2] < 180 || redSame[2] > 275)
             return true;
-        if (redSame[3] < 17 || redSame[3] > 35)
+        if (redSame[3] < 10 || redSame[3] > 35)
             return true;
         if (redSame[4] > 2)
             return true;
