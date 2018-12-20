@@ -18,88 +18,40 @@ public class Sports2 {
 
     static int cal = 0;
 
-    static String[] reds;
-    static String[] bule;
-
     public static void main(String[] args) {
 
+        // red 6/35
+        String[] reds = common.randomSequence(35, 6);
+        // blue 3/12
+        String[] bules = common.randomSequence(12, 3);
+
+        String[] oneSports = getOneSports(reds, bules);
+
         System.out.println("\n\nSports:" + common.getCurrentDate());
-        get_sports();
+        printLotto_6_3(oneSports);
 
-    }
+        List<String[]> combinationResult = getCombinationResult(reds, bules);
+        for (String[] oneSport : combinationResult) {
+
+//            printLotto_5_2(oneSport);
+            get_sports(oneSport);
 
 
-    /**
-     * 得到组合结果
-     *
-     * @param num 从N个数中选取num个数
-     * @param str 包含Ng个元素的字符串
-     * @return 组合结果
-     */
-    public static List<String> getCombinationResult(int num, String str) {
-        List<String> result = new ArrayList<String>();
-        if (num == 1) {
-            for (char c : str.toCharArray()) {
-                result.add(String.valueOf(c));
-            }
-            return result;
         }
-        if (num >= str.length()) {
-            result.add(str);
-            return result;
-        }
-        int strlen = str.length();
-        for (int i = 0; i < (strlen - num + 1); i++) {
-            List<String> cr = getCombinationResult(num - 1, str.substring(i + 1));//从i+1处直至字符串末尾
-            char c = str.charAt(i);//得到上面被去掉的字符，进行组合
-            for (String s : cr) {
-                result.add(c + s);
-            }
-        }
-        return result;
+
     }
 
 
     /**
      * 生成1注
      */
-    private static void get_sports() {
+    private static void get_sports(String[] oneSport) {
         Node xml = common.getXmlData("lotto/data_sports.xml");
 
-        String[] oneSports = getOneSports();
-
-        printLotto_sports(reds);
-
-        getCombinationResult(5, "ABCDFRE");
-
+        compare_sports(xml, oneSport);
 
     }
 
-
-    /**
-     * 生成随机一注_sports
-     *
-     * @return
-     */
-    private static String[] getOneSports() {
-        // red 6/35
-        reds = common.randomSequence(35, 6);
-        // blue 3/12
-        bule = common.randomSequence(12, 3);
-
-        String[] Sports = new String[9];
-
-        for (int i = 0; i < Sports.length; i++) {
-
-            if (i < 6) {
-                Sports[i] = reds[i];
-            } else {
-                Sports[i] = bule[i - 6];
-            }
-        }
-
-        return Sports;
-    }
 
     /**
      * 比较历史数据_sports
@@ -148,12 +100,6 @@ public class Sports2 {
 
         }
 
-        if (redSame[0] < 750 || redSame[0] > 860)
-            return true;
-        if (redSame[1] < 680 || redSame[1] > 800)
-            return true;
-        if (redSame[2] < 180 || redSame[2] > 275)
-            return true;
         if (redSame[3] < 13 || redSame[3] > 35)
             return true;
         if (redSame[4] > 2)
@@ -161,21 +107,6 @@ public class Sports2 {
         if (redSame[5] > 0)
             return true;
 
-        if (blueSame[0] < 1150 || blueSame[0] > 1250)
-            return true;
-        if (blueSame[1] < 500 || blueSame[1] > 580)
-            return true;
-        if (blueSame[2] < 16 || blueSame[2] > 36)
-            return true;
-
-        if (allSame[0] < 448 || allSame[0] > 596)
-            return true;
-        if (allSame[1] < 690 || allSame[1] > 771)
-            return true;
-        if (allSame[2] < 334 || allSame[2] > 434)
-            return true;
-        if (allSame[3] < 66 || allSame[3] > 135)
-            return true;
         if (allSame[4] < 5 || allSame[4] > 17)
             return true;
         if (allSame[5] > 2)
@@ -185,8 +116,28 @@ public class Sports2 {
         if (allSame[7] > 0)
             return true;
 
-        printLotto_sports(oneSports);
+//        printLotto_5_2(oneSports);
         return false;
+    }
+
+
+    /**
+     * 生成随机一注_sports
+     *
+     * @return
+     */
+    private static String[] getOneSports(String[] reds, String[] bules) {
+        String[] Sports = new String[9];
+
+        for (int i = 0; i < Sports.length; i++) {
+
+            if (i < 6)
+                Sports[i] = reds[i];
+            else
+                Sports[i] = bules[i - 6];
+
+        }
+        return Sports;
     }
 
     /**
@@ -194,7 +145,25 @@ public class Sports2 {
      *
      * @param oneSports
      */
-    private static void printLotto_sports(String[] oneSports) {
+    private static void printLotto_5_2(String[] oneSports) {
+        for (int i = 0; i < oneSports.length; i++) {
+            if (i == 4)
+                System.out.print(oneSports[i] + "   ");
+            else
+                System.out.print(oneSports[i] + " ");
+
+        }
+        System.out.print("\t\t" + cal);
+        System.out.println();
+    }
+
+
+    /**
+     * 打印生成的数据
+     *
+     * @param oneSports
+     */
+    private static void printLotto_6_3(String[] oneSports) {
         for (int i = 0; i < oneSports.length; i++) {
             if (i == 5)
                 System.out.print(oneSports[i] + "   ");
@@ -204,6 +173,57 @@ public class Sports2 {
         }
         System.out.print("\t\t" + cal);
         System.out.println();
+    }
+
+    /**
+     * 得到组合结果
+     */
+    public static List<String[]> getCombinationResult(String[] reds, String[] bules) {
+        List<String[]> result = new ArrayList<String[]>();
+
+        String[] temp01 = {reds[0], reds[1], reds[2], reds[3], reds[4], bules[0], bules[1]};
+        String[] temp02 = {reds[0], reds[1], reds[2], reds[3], reds[5], bules[0], bules[1]};
+        String[] temp03 = {reds[0], reds[1], reds[2], reds[4], reds[5], bules[0], bules[1]};
+        String[] temp04 = {reds[0], reds[1], reds[3], reds[4], reds[5], bules[0], bules[1]};
+        String[] temp05 = {reds[0], reds[2], reds[3], reds[4], reds[5], bules[0], bules[1]};
+        String[] temp06 = {reds[1], reds[2], reds[3], reds[4], reds[5], bules[0], bules[1]};
+
+        result.add(temp01);
+        result.add(temp02);
+        result.add(temp03);
+        result.add(temp04);
+        result.add(temp05);
+        result.add(temp06);
+
+        String[] temp11 = {reds[0], reds[1], reds[2], reds[3], reds[4], bules[0], bules[2]};
+        String[] temp12 = {reds[0], reds[1], reds[2], reds[3], reds[5], bules[0], bules[2]};
+        String[] temp13 = {reds[0], reds[1], reds[2], reds[4], reds[5], bules[0], bules[2]};
+        String[] temp14 = {reds[0], reds[1], reds[3], reds[4], reds[5], bules[0], bules[2]};
+        String[] temp15 = {reds[0], reds[2], reds[3], reds[4], reds[5], bules[0], bules[2]};
+        String[] temp16 = {reds[1], reds[2], reds[3], reds[4], reds[5], bules[0], bules[2]};
+
+        result.add(temp11);
+        result.add(temp12);
+        result.add(temp13);
+        result.add(temp14);
+        result.add(temp15);
+        result.add(temp16);
+
+        String[] temp21 = {reds[0], reds[1], reds[2], reds[3], reds[4], bules[1], bules[2]};
+        String[] temp22 = {reds[0], reds[1], reds[2], reds[3], reds[5], bules[1], bules[2]};
+        String[] temp23 = {reds[0], reds[1], reds[2], reds[4], reds[5], bules[1], bules[2]};
+        String[] temp24 = {reds[0], reds[1], reds[3], reds[4], reds[5], bules[1], bules[2]};
+        String[] temp25 = {reds[0], reds[2], reds[3], reds[4], reds[5], bules[1], bules[2]};
+        String[] temp26 = {reds[1], reds[2], reds[3], reds[4], reds[5], bules[1], bules[2]};
+
+        result.add(temp21);
+        result.add(temp22);
+        result.add(temp23);
+        result.add(temp24);
+        result.add(temp25);
+        result.add(temp26);
+
+        return result;
     }
 
 }
