@@ -17,8 +17,29 @@ public class Sports2 {
     static int[] allSame = new int[8];
 
     static int cal = 0;
+    static boolean isfindSame = true;
+
 
     public static void main(String[] args) {
+        System.out.println("\n\nSports:" + common.getCurrentDate());
+        List<String[]> combinationResult;
+
+        do {
+            combinationResult = createOne_6_3();
+            cal++;
+            for (String[] oneSport : combinationResult) {
+                isfindSame = get_sports(oneSport);
+                if (isfindSame == true) {
+                    break;
+                }
+
+            }
+        } while (isfindSame);
+
+
+    }
+
+    private static List<String[]> createOne_6_3() {
 
         // red 6/35
         String[] reds = common.randomSequence(35, 6);
@@ -27,29 +48,18 @@ public class Sports2 {
 
         String[] oneSports = getOneSports(reds, bules);
 
-        System.out.println("\n\nSports:" + common.getCurrentDate());
         printLotto_6_3(oneSports);
-
-        List<String[]> combinationResult = getCombinationResult(reds, bules);
-        for (String[] oneSport : combinationResult) {
-
-//            printLotto_5_2(oneSport);
-            get_sports(oneSport);
-
-
-        }
-
+        return getCombinationResult(reds, bules);
     }
 
 
     /**
      * 生成1注
      */
-    private static void get_sports(String[] oneSport) {
+    private static boolean get_sports(String[] oneSport) {
         Node xml = common.getXmlData("lotto/data_sports.xml");
 
-        compare_sports(xml, oneSport);
-
+        return compare_sports(xml, oneSport);
     }
 
 
@@ -100,6 +110,12 @@ public class Sports2 {
 
         }
 
+        if (redSame[0] < 750 || redSame[0] > 860)
+            return true;
+        if (redSame[1] < 680 || redSame[1] > 800)
+            return true;
+        if (redSame[2] < 180 || redSame[2] > 275)
+            return true;
         if (redSame[3] < 13 || redSame[3] > 35)
             return true;
         if (redSame[4] > 2)
@@ -107,6 +123,21 @@ public class Sports2 {
         if (redSame[5] > 0)
             return true;
 
+        if (blueSame[0] < 1150 || blueSame[0] > 1250)
+            return true;
+        if (blueSame[1] < 500 || blueSame[1] > 580)
+            return true;
+        if (blueSame[2] < 16 || blueSame[2] > 36)
+            return true;
+
+        if (allSame[0] < 448 || allSame[0] > 596)
+            return true;
+        if (allSame[1] < 690 || allSame[1] > 771)
+            return true;
+        if (allSame[2] < 334 || allSame[2] > 434)
+            return true;
+        if (allSame[3] < 66 || allSame[3] > 135)
+            return true;
         if (allSame[4] < 5 || allSame[4] > 17)
             return true;
         if (allSame[5] > 2)
@@ -116,7 +147,6 @@ public class Sports2 {
         if (allSame[7] > 0)
             return true;
 
-//        printLotto_5_2(oneSports);
         return false;
     }
 
