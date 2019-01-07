@@ -140,7 +140,7 @@ public class Sports2 {
             return true;
         if (allSame[4] < 5 || allSame[4] > 17)
             return true;
-        if (allSame[5] > 2)
+        if (allSame[5] > 3)
             return true;
         if (allSame[6] > 0)
             return true;
