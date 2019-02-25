@@ -1,5 +1,166 @@
 <data contentType="text/xml; charset=utf-8">
-
+    <r date="19020">
+        <c red="01"/>
+        <c red="08"/>
+        <c red="16"/>
+        <c red="27"/>
+        <c red="34"/>
+        <c blue="03"/>
+        <c blue="12"/>
+    </r>
+    <r date="19019">
+        <c red="04"/>
+        <c red="11"/>
+        <c red="19"/>
+        <c red="25"/>
+        <c red="32"/>
+        <c blue="01"/>
+        <c blue="02"/>
+    </r>
+    <r date="19018">
+        <c red="03"/>
+        <c red="18"/>
+        <c red="19"/>
+        <c red="26"/>
+        <c red="34"/>
+        <c blue="06"/>
+        <c blue="12"/>
+    </r>
+    <r date="19017">
+        <c red="01"/>
+        <c red="05"/>
+        <c red="07"/>
+        <c red="22"/>
+        <c red="25"/>
+        <c blue="03"/>
+        <c blue="04"/>
+    </r>
+    <r date="19016">
+        <c red="03"/>
+        <c red="05"/>
+        <c red="13"/>
+        <c red="16"/>
+        <c red="28"/>
+        <c blue="02"/>
+        <c blue="06"/>
+    </r>
+    <r date="19015">
+        <c red="02"/>
+        <c red="05"/>
+        <c red="10"/>
+        <c red="13"/>
+        <c red="30"/>
+        <c blue="04"/>
+        <c blue="06"/>
+    </r>
+    <r date="19014">
+        <c red="12"/>
+        <c red="14"/>
+        <c red="20"/>
+        <c red="28"/>
+        <c red="31"/>
+        <c blue="09"/>
+        <c blue="11"/>
+    </r>
+    <r date="19013">
+        <c red="08"/>
+        <c red="10"/>
+        <c red="15"/>
+        <c red="17"/>
+        <c red="18"/>
+        <c blue="01"/>
+        <c blue="08"/>
+    </r>
+    <r date="19012">
+        <c red="05"/>
+        <c red="09"/>
+        <c red="17"/>
+        <c red="18"/>
+        <c red="19"/>
+        <c blue="07"/>
+        <c blue="10"/>
+    </r>
+    <r date="19011">
+        <c red="04"/>
+        <c red="12"/>
+        <c red="13"/>
+        <c red="16"/>
+        <c red="17"/>
+        <c blue="04"/>
+        <c blue="09"/>
+    </r>
+    <r date="19010">
+        <c red="03"/>
+        <c red="07"/>
+        <c red="24"/>
+        <c red="25"/>
+        <c red="27"/>
+        <c blue="02"/>
+        <c blue="12"/>
+    </r>
+    <r date="19009">
+        <c red="03"/>
+        <c red="09"/>
+        <c red="15"/>
+        <c red="18"/>
+        <c red="26"/>
+        <c blue="06"/>
+        <c blue="12"/>
+    </r>
+    <r date="19008">
+        <c red="03"/>
+        <c red="08"/>
+        <c red="17"/>
+        <c red="20"/>
+        <c red="24"/>
+        <c blue="06"/>
+        <c blue="11"/>
+    </r>
+    <r date="19007">
+        <c red="03"/>
+        <c red="12"/>
+        <c red="16"/>
+        <c red="29"/>
+        <c red="32"/>
+        <c blue="01"/>
+        <c blue="05"/>
+    </r>
+    <r date="19006">
+        <c red="14"/>
+        <c red="17"/>
+        <c red="19"/>
+        <c red="25"/>
+        <c red="30"/>
+        <c blue="04"/>
+        <c blue="08"/>
+    </r>
+    <r date="19005">
+        <c red="21"/>
+        <c red="26"/>
+        <c red="27"/>
+        <c red="29"/>
+        <c red="34"/>
+        <c blue="05"/>
+        <c blue="06"/>
+    </r>
+    <r date="19004">
+        <c red="15"/>
+        <c red="16"/>
+        <c red="17"/>
+        <c red="31"/>
+        <c red="32"/>
+        <c blue="03"/>
+        <c blue="09"/>
+    </r>
+    <r date="19003">
+        <c red="04"/>
+        <c red="08"/>
+        <c red="18"/>
+        <c red="20"/>
+        <c red="32"/>
+        <c blue="10"/>
+        <c blue="12"/>
+    </r>
     <r date="19002">
         <c red="02"/>
         <c red="07"/>
