@@ -1,12 +1,13 @@
 package sports;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import common.Common;
 import groovy.util.Node;
 
-public class Sports {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Sports_Test {
 
     static Common common = new Common();
 
@@ -31,17 +32,13 @@ public class Sports {
         Node xml = common.getXmlData("lotto/data_sports.xml");
 
         String[] oneSports = getOneSports();
+        String[] nowSports = {"07", "11", "12", "16", "33", "05", "07"};
 
-        for (int i = 0; i < 20; i++) {
-            cal = 0;
-            if (i % 5 == 0) {
-                System.out.println();
-            }
-            do {
-                cal++;
-                oneSports = getOneSports();
-            } while (compare_sports(xml, oneSports));
-        }
+        do {
+            cal++;
+            oneSports = getOneSports();
+        } while (compare_sports(xml, oneSports, nowSports));
+
     }
 
     /**
@@ -76,7 +73,7 @@ public class Sports {
      * @param oneSports 随机一注
      * @return
      */
-    private static boolean compare_sports(Node xml, String[] oneSports) {
+    private static boolean compare_sports(Node xml, String[] oneSports, String[] nowSports) {
 
         redSame = new int[6];
         blueSame = new int[3];
@@ -140,6 +137,12 @@ public class Sports {
         if (allSame[6] > 0)
             return true;
         if (allSame[7] > 0)
+            return true;
+
+//        printLotto_sports(oneSports);
+//        printLotto_sports(nowSports);
+
+        if (!Arrays.equals(oneSports, nowSports))
             return true;
 
         printLotto_sports(oneSports);
