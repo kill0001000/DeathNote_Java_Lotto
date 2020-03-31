@@ -1,4 +1,4 @@
-package sports;
+package test;
 
 import common.Common;
 import groovy.util.Node;
