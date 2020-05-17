@@ -116,9 +116,9 @@ public class Sports {
 
         }
 
-        if (redSame[2] < 200 || redSame[2] > 275)
+        if (redSame[2] < 200 || redSame[2] > 278)
             return true;
-        if (redSame[3] < 13 || redSame[3] > 35)
+        if (redSame[3] < 20 || redSame[3] > 31)
             return true;
         if (redSame[4] > 2)
             return true;
@@ -126,14 +126,14 @@ public class Sports {
             return true;
 
 
-        if (blueSame[1] < 500 || blueSame[1] > 620)
+        if (blueSame[1] < 555 || blueSame[1] > 613)
             return true;
-        if (blueSame[2] < 18 || blueSame[2] > 37)
+        if (blueSame[2] < 22 || blueSame[2] > 38)
             return true;
 
-        if (allSame[3] < 80 || allSame[3] > 127)
+        if (allSame[3] < 84 || allSame[3] > 127)
             return true;
-        if (allSame[4] < 7 || allSame[4] > 22)
+        if (allSame[4] < 8 || allSame[4] > 17)
             return true;
         if (allSame[5] > 2)
             return true;
