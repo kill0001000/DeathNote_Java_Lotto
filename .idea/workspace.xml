@@ -7,8 +7,6 @@
     <list default="true" id="0fb22860-ba9d-4bbd-82f5-c52fc0e7cf4c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lotto/data_sports.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lotto/data_sports.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sports/Sports.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sports/Sports.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_sports.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="data_sports.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lotto/data_sports.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="1349">
+              <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -68,11 +66,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sports.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Sports.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/sports/Sports.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="126" selection-start-line="126" selection-end-line="126" />
+            <state relative-caret-position="228">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#1824#1832#0" expanded="true" />
+                <element signature="e#1881#1889#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -392,33 +394,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info id="DB Browser" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32912844" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32928804" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" x="0" y="0" width="1280" height="994" id="Run" order="2" type="FLOATING" weight="0.68004584" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994463" visible="true" weight="0.16747573" />
       <window_info id="Project Explorer" order="6" />
       <window_info id="Job Explorer" order="7" />
       <window_info anchor="bottom" id="Console" order="10" />
       <window_info id="Structure" order="1" sideWeight="0.5005537" side_tool="true" weight="0.23139158" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="8" />
+      <window_info anchor="bottom" x="0" y="0" width="1280" height="994" id="Debug" order="3" type="FLOATING" weight="0.27131784" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info id="DB Browser" order="2" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.1662844" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" x="0" y="0" width="1280" height="994" id="Run" order="2" type="FLOATING" weight="0.68004584" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994463" visible="true" weight="0.29126215" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="9" side_tool="true" />
-      <window_info anchor="bottom" x="0" y="0" width="1280" height="994" id="Debug" order="3" type="FLOATING" weight="0.27131784" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.1662844" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -784,6 +785,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lotto/data_sports.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1349">
+          <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sports/SportsAnalyst.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
@@ -793,15 +801,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sports/Sports.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="126" selection-start-line="126" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lotto/data_sports.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state relative-caret-position="228">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#1824#1832#0" expanded="true" />
+            <element signature="e#1881#1889#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
